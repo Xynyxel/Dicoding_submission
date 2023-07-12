@@ -1,0 +1,9 @@
+Goals
+
+Preferensi Pelanggan
+EDA Customer
+Cluster Customer
+
+Analisa Produk Populer (EDA product)
+
+Optimisasi harga dan strategi pemasaran (EDA based on time customer online)
