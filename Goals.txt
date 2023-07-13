@@ -3,7 +3,42 @@ Goals
 Preferensi Pelanggan
 EDA Customer
 Cluster Customer
+* kmeans 
+* dbscan
 
 Analisa Produk Populer (EDA product)
 
 Optimisasi harga dan strategi pemasaran (EDA based on time customer online)
+
+
+Melakukan analisa untuk menentukan perilaku dan preferensi pelanggan dengan menggunakan cluster pelanggan
+1.Which country have the most transaction sales? (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+2.How much average sales for all transaction(each invoice) (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+3.Which year that have the most sales? (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+4.Which month that have the most sales? (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+5.Which day that have the most sales? (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+6. Time Of day barChart (https://www.kaggle.com/code/sumeet07/eda-fe-model-buliding#Top-10-Customer-By-Qunatity)
+7. PieChat of Time of day (https://www.kaggle.com/code/sumeet07/eda-fe-model-buliding#Top-10-Customer-By-Qunatity)
+8. Time of day Vs Sales (https://www.kaggle.com/code/sumeet07/eda-fe-model-buliding#Top-10-Customer-By-Qunatity)
+9. Sales of the day, sales of the week (https://www.kaggle.com/code/sumeet07/eda-fe-model-buliding#Top-10-Customer-By-Qunatity)
+10. Word Cloud of Description Column
+11. Word Cloud (Month Wise)
+
+3. Cluster customer segmentation
+
+
+1.Top 10 item that have the most sales. (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+2.Top 10 most purchased item (https://www.kaggle.com/code/themeeemul/eda-onlineretailtransaction#Explaratory-Data-Analysis-(EDA))
+3. Cluster product segmentation
+
+
+
+
+Melakukan identifikasi dan analisa produk populer
+
+
+Memberikan saran dan masukan untuk mengoptimalkan harga dan strategi pemasaran
+
+
+
+
