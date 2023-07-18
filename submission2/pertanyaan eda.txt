@@ -1,0 +1,14 @@
+1. Bagaimana distribusi rating film dalam dataset?
+2. Bagaimana distribusi pendapatan (revenue) film dalam dataset?
+3. Apakah ada korelasi antara anggaran produksi dan pendapatan film?
+5. Genre film apa yang paling banyak muncul dalam dataset?
+6. Bagaimana distribusi tahun rilis film dalam dataset?
+7. Apakah ada tren peningkatan atau penurunan jumlah film dari waktu ke waktu?
+
+
+8. Apakah ada hubungan antara genre film dan rating?
+9. Genre film mana yang paling menguntungkan berdasarkan pendapatan?
+10. Bagaimana distribusi bahasa film dalam dataset?
+11. Apakah ada hubungan antara bahasa film dan rating?
+12. Bagaimana rata-rata anggaran produksi film berdasarkan genre?
+13. Apakah ada tren peningkatan atau penurunan anggaran produksi film dari waktu ke waktu?
