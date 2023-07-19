@@ -1,1 +1,7 @@
 https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset
+
+
+modelling using 
+1. genre using one hot encoding
+2. genre using tfidf vectorizer
+
