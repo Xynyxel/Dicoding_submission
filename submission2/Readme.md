@@ -1,10 +1,11 @@
-# ** Laporan Proyek Machine Learning - Tony Wijaya **
+# **Laporan Proyek Machine Learning - Tony Wijaya**
 
 ## Project Overview
 
 ### Latar Belakang
-        Dewasa ini, website yang berisi video dan komunitas film, seperti Netflix, MovieLens, Youtube dan sebagainya, sudah sangat populer saat ini. Pada website tersebut memiliki banyak user dan kemudian user tersebut bisa memberi penilaian terhadap film yang tersedia. Melihat review terlebih dahulu merupakan salah satu cara untuk mengetahui kualitas dari film tersebut. Namun, banyaknya jumlah user yang memberi review berbeda-beda pada suatu film membuat pembaca kebingunan dalam menyimpulkan review tersebut.
-        Selera setiap orang pasti berdeda. Seseorang bisa menyukai film berdasarkan genre, aktor atau rumah produksi. Hal ini yang menjadi permasalahan seseorang dalam menentukan film yang sesuai dengan ekspektasi. Mengingat jumlah film yang begitu banyak dan beragam jenisnya, seseorang tentu tidak memiliki cukup waktu untuk memeriksa sinopsis atau trailer satu per satu. Belum lagi jika ada film baru yang belum diketahui judulnya. Maka dari itu harapan seseorang adalah menginginkan rekomendasi film yang sesuai harapan dari berbagai aspek dengan efektifitas waktu yang maksimal[1].
+
+Dewasa ini, website yang berisi video dan komunitas film, seperti Netflix, MovieLens, Youtube dan sebagainya, sudah sangat populer saat ini. Pada website tersebut memiliki banyak user dan kemudian user tersebut bisa memberi penilaian terhadap film yang tersedia. Melihat review terlebih dahulu merupakan salah satu cara untuk mengetahui kualitas dari film tersebut. Namun, banyaknya jumlah user yang memberi review berbeda-beda pada suatu film membuat pembaca kebingunan dalam menyimpulkan review tersebut.
+Selera setiap orang pasti berdeda. Seseorang bisa menyukai film berdasarkan genre, aktor atau rumah produksi. Hal ini yang menjadi permasalahan seseorang dalam menentukan film yang sesuai dengan ekspektasi. Mengingat jumlah film yang begitu banyak dan beragam jenisnya, seseorang tentu tidak memiliki cukup waktu untuk memeriksa sinopsis atau trailer satu per satu. Belum lagi jika ada film baru yang belum diketahui judulnya. Maka dari itu harapan seseorang adalah menginginkan rekomendasi film yang sesuai harapan dari berbagai aspek dengan efektifitas waktu yang maksimal[1].
 
 ## Business Understanding
 
@@ -19,7 +20,7 @@ Menjelaskan pernyataan masalah latar belakang:
 Menjelaskan tujuan dari pernyataan masalah:
 
 * Memberikan analisa terkait hubungan antara _genre_, _crew_, _origin language_, _rating_ dan overview dari film tersebut dan membuat rekomendasi berdasarkan variabel diatas. 
-=
+
 ## Data Understanding
 _[Dataset](https://www.kaggle.com/datasets/ashpalsingh1525/imdb-movies-dataset)_ yang digunakan berasal dari kaggle. _Dataset_ hanya berisi 1 data yaitu imdb_movies.csv yang berisi data movies dari _Internet_ _Movie_ _Database_ (IMDb) yang merupakan _database_ informasi online yang berkaitan dengan film, serial televisi, podcast, video rumahan, video game, dan konten streaming online – termasuk pemeran, kru produksi dan biografi pribadi, ringkasan plot, trivia, peringkat, dan ulasan penggemar dan kritis.
 
