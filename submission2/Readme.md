@@ -91,20 +91,20 @@ Ada _missing_ _Value_ sebanyak 85 pada bagian genre dan 56 pada crew
 
 1. Setelah di cek pada kolom genre tidak ada referensi yang cukup untuk melakukan _fill missing value_ sehingga diambil langkah untuk melakukan drop data saja dikarenakan hanya terdapat 85 data dan tidak terlalu menggangu analisa. Begitu juga dengan kolom crew tidak ada referensi ynag cukup untuk melakukan _fill missing value_ sehingga diambil langkah yang sama yaitu melakukan drop data saja.
 
-|    | variable   | dtype   |   count |   unique |   missing |
-|---:|:-----------|:--------|--------:|---------:|----------:|
-|  0 | names      | object  |   10052 |     9538 |         0 |
-|  1 | date_x     | object  |   10052 |     5642 |         0 |
-|  2 | score      | float64 |   10052 |       78 |         0 |
-|  3 | genre      | object  |   10052 |     2300 |         0 |
-|  4 | overview   | object  |   10052 |     9810 |         0 |
-|  5 | crew       | object  |   10052 |     9857 |         0 |
-|  6 | orig_title | object  |   10052 |     9614 |         0 |
-|  7 | status     | object  |   10052 |        3 |         0 |
-|  8 | orig_lang  | object  |   10052 |       53 |         0 |
-|  9 | budget_x   | float64 |   10052 |     2311 |         0 |
-| 10 | revenue    | float64 |   10052 |     8202 |         0 |
-| 11 | country    | object  |   10052 |       57 |         0 |
+    |    | variable   | dtype   |   count |   unique |   missing |
+    |---:|:-----------|:--------|--------:|---------:|----------:|
+    |  0 | names      | object  |   10052 |     9538 |         0 |
+    |  1 | date_x     | object  |   10052 |     5642 |         0 |
+    |  2 | score      | float64 |   10052 |       78 |         0 |
+    |  3 | genre      | object  |   10052 |     2300 |         0 |
+    |  4 | overview   | object  |   10052 |     9810 |         0 |
+    |  5 | crew       | object  |   10052 |     9857 |         0 |
+    |  6 | orig_title | object  |   10052 |     9614 |         0 |
+    |  7 | status     | object  |   10052 |        3 |         0 |
+    |  8 | orig_lang  | object  |   10052 |       53 |         0 |
+    |  9 | budget_x   | float64 |   10052 |     2311 |         0 |
+    | 10 | revenue    | float64 |   10052 |     8202 |         0 |
+    | 11 | country    | object  |   10052 |       57 |         0 |
 
 Dapat dilihat setelah data yang _missing_ berhasil di _drop_ maka hanya terdapat 10052 data.
 
@@ -112,33 +112,34 @@ Dapat dilihat setelah data yang _missing_ berhasil di _drop_ maka hanya terdapat
 3. Kolom Revenue dan budget yang diubah menjadi rupiah dengan bantuan libray locale. Penamaan kolom baru yaitu revenue_formatted dan budget_formatted
 4. Menguba kolom genre menggunakan tdidfvectorizer untuk melakukan mapping data genre ke beberapa kolom.
 
-| names                                                   |   action |       tv |   mystery |   western |   horror |   thriller |   fantasy |   family |   romance |   war |   documentary |   fiction |   crime |   music |   comedy |    drama |    movie |   animation |   science |   adventure |   history |
-|:--------------------------------------------------------|---------:|---------:|----------:|----------:|---------:|-----------:|----------:|---------:|----------:|------:|--------------:|----------:|--------:|--------:|---------:|---------:|---------:|------------:|----------:|------------:|----------:|
-| Mona Lisa Smile                                         | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.526189 |     0 |             0 |  0        |       0 |       0 | 0        | 0.363478 | 0        |           0 |  0        |    0        |  0.768771 |
-| Tank Girl                                               | 0.425001 | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0.569694 |       0 |       0 | 0.412639 | 0        | 0        |           0 |  0.569694 |    0        |  0        |
-| A.I. Rising                                             | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.512691 |     0 |             0 |  0.553047 |       0 |       0 | 0        | 0.354154 | 0        |           0 |  0.553047 |    0        |  0        |
-| Pamasahe                                                | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 1        | 0        |           0 |  0        |    0        |  0        |
-| Pearl                                                   | 0        | 0        |         0 |         0 |        1 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 0        | 0        |           0 |  0        |    0        |  0        |
-| The Ten Commandments                                    | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 1        | 0        |           0 |  0        |    0        |  0        |
-| Stolen by Their Father                                  | 0        | 0.679706 |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 0.27568  | 0.679706 |           0 |  0        |    0        |  0        |
-| The Holiday                                             | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.787994 |     0 |             0 |  0        |       0 |       0 | 0.615683 | 0        | 0        |           0 |  0        |    0        |  0        |
-| Solo: A Star Wars Story                                 | 0.410032 | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0.549629 |       0 |       0 | 0        | 0        | 0        |           0 |  0.549629 |    0.477168 |  0        |
-| Teenage Mutant Ninja Turtles II: The Secret of the Ooze | 0.341746 | 0        |         0 |         0 |        0 |          0 |         0 | 0.441869 |  0        |     0 |             0 |  0.458094 |       0 |       0 | 0.331805 | 0        | 0        |           0 |  0.458094 |    0.397701 |  0        |
+    | names                                                   |   action |       tv |   mystery |   western |   horror |   thriller |   fantasy |   family |   romance |   war |   documentary |   fiction |   crime |   music |   comedy |    drama |    movie |   animation |   science |   adventure |   history |
+    |:--------------------------------------------------------|---------:|---------:|----------:|----------:|---------:|-----------:|----------:|---------:|----------:|------:|--------------:|----------:|--------:|--------:|---------:|---------:|---------:|------------:|----------:|------------:|----------:|
+    | Mona Lisa Smile                                         | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.526189 |     0 |             0 |  0        |       0 |       0 | 0        | 0.363478 | 0        |           0 |  0        |    0        |  0.768771 |
+    | Tank Girl                                               | 0.425001 | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0.569694 |       0 |       0 | 0.412639 | 0        | 0        |           0 |  0.569694 |    0        |  0        |
+    | A.I. Rising                                             | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.512691 |     0 |             0 |  0.553047 |       0 |       0 | 0        | 0.354154 | 0        |           0 |  0.553047 |    0        |  0        |
+    | Pamasahe                                                | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 1        | 0        |           0 |  0        |    0        |  0        |
+    | Pearl                                                   | 0        | 0        |         0 |         0 |        1 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 0        | 0        |           0 |  0        |    0        |  0        |
+    | The Ten Commandments                                    | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 1        | 0        |           0 |  0        |    0        |  0        |
+    | Stolen by Their Father                                  | 0        | 0.679706 |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0        |       0 |       0 | 0        | 0.27568  | 0.679706 |           0 |  0        |    0        |  0        |
+    | The Holiday                                             | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.787994 |     0 |             0 |  0        |       0 |       0 | 0.615683 | 0        | 0        |           0 |  0        |    0        |  0        |
+    | Solo: A Star Wars Story                                 | 0.410032 | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0        |     0 |             0 |  0.549629 |       0 |       0 | 0        | 0        | 0        |           0 |  0.549629 |    0.477168 |  0        |
+    | Teenage Mutant Ninja Turtles II: The Secret of the Ooze | 0.341746 | 0        |         0 |         0 |        0 |          0 |         0 | 0.441869 |  0        |     0 |             0 |  0.458094 |       0 |       0 | 0.331805 | 0        | 0        |           0 |  0.458094 |    0.397701 |  0        |
 
-> TfidfVectorizer menggunakan kosakata dalam memori (dict python) untuk memetakan kata yang paling sering ke indeks fitur dan karenanya menghitung matriks frekuensi kemunculan kata (jarang).
+> _TfidfVectorizer_ menggunakan kosakata dalam memori (dict python) untuk memetakan kata yang paling sering ke indeks fitur dan karenanya menghitung matriks frekuensi kemunculan kata (jarang).
 
 5. Mengubah data genre dalam bentuk one hot encoding yang kurang lebih berfungsi untuk melakukan mapping beberapa genre menjadi beberapa kolom.
 
-|    | names                       |   Action |   Adventure |   Animation |   Comedy |   Crime |   Documentary |   Drama |   Family |   Fantasy |   History |   Horror |   Music |   Mystery |   Romance |   Science Fiction |   TV Movie |   Thriller |   War |   Western |
-|---:|:----------------------------|---------:|------------:|------------:|---------:|--------:|--------------:|--------:|---------:|----------:|----------:|---------:|--------:|----------:|----------:|------------------:|-----------:|-----------:|------:|----------:|
-|  0 | Creed III                   |        1 |           0 |           0 |        0 |       0 |             0 |       1 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
-|  1 | Avatar: The Way of Water    |        1 |           1 |           0 |        0 |       0 |             0 |       0 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 1 |          0 |          0 |     0 |         0 |
-|  2 | The Super Mario Bros. Movie |        0 |           1 |           1 |        1 |       0 |             0 |       0 |        1 |         1 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
-|  3 | Mummies                     |        0 |           1 |           1 |        1 |       0 |             0 |       0 |        1 |         1 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
-|  4 | Supercell                   |        1 |           0 |           0 |        0 |       0 |             0 |       0 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
-> Pengodean satu-panas dalam pembelajaran mesin adalah konversi informasi kategorikal ke dalam format yang dapat dimasukkan ke dalam algoritme pembelajaran mesin untuk meningkatkan akurasi prediksi. Pengkodean satu-panas adalah metode umum untuk menangani data kategorikal dalam pembelajaran mesin.
+    |    | names                       |   Action |   Adventure |   Animation |   Comedy |   Crime |   Documentary |   Drama |   Family |   Fantasy |   History |   Horror |   Music |   Mystery |   Romance |   Science Fiction |   TV Movie |   Thriller |   War |   Western |
+    |---:|:----------------------------|---------:|------------:|------------:|---------:|--------:|--------------:|--------:|---------:|----------:|----------:|---------:|--------:|----------:|----------:|------------------:|-----------:|-----------:|------:|----------:|
+    |  0 | Creed III                   |        1 |           0 |           0 |        0 |       0 |             0 |       1 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
+    |  1 | Avatar: The Way of Water    |        1 |           1 |           0 |        0 |       0 |             0 |       0 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 1 |          0 |          0 |     0 |         0 |
+    |  2 | The Super Mario Bros. Movie |        0 |           1 |           1 |        1 |       0 |             0 |       0 |        1 |         1 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
+    |  3 | Mummies                     |        0 |           1 |           1 |        1 |       0 |             0 |       0 |        1 |         1 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
+    |  4 | Supercell                   |        1 |           0 |           0 |        0 |       0 |             0 |       0 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
+    
+> _one hot encoding_ dalam pembelajaran mesin adalah konversi informasi kategorikal ke dalam format yang dapat dimasukkan ke dalam algoritme pembelajaran mesin untuk meningkatkan akurasi prediksi. Pengkodean satu-panas adalah metode umum untuk menangani data kategorikal dalam pembelajaran mesin.
 
-> Catatan: Perbedaan one-hot-encoding vs tfidfvectorizer 
+> Catatan: Perbedaan _one-hot-encoding_ vs _tfidfvectorizer_ 
 >>* TfidfVectorizer: Term Frequency-Inverse Document Frequency (TF-IDF) adalah representasi numerik yang mencerminkan pentingnya kata dalam dokumen relatif terhadap kumpulan dokumen. Itu mengubah kumpulan dokumen teks menjadi matriks fitur TF-IDF, di mana setiap baris sesuai dengan dokumen, dan setiap kolom sesuai dengan kata unik di seluruh korpus.
 >>* One-Hot Encoding: One-hot encoding adalah teknik yang digunakan untuk mengubah variabel kategori (seperti kata) menjadi vektor biner. Setiap kata diwakili oleh vektor nol kecuali untuk indeks yang sesuai dengan posisi kata dalam kosakata, yang diatur ke 1. Ini menciptakan representasi biner dari setiap kata ada atau tidak ada dalam dokumen tertentu.
 
