@@ -91,6 +91,7 @@ Ada _missing_ _Value_ sebanyak 85 pada bagian genre dan 56 pada crew
 
 1. Setelah di cek pada kolom genre tidak ada referensi yang cukup untuk melakukan _fill missing value_ sehingga diambil langkah untuk melakukan drop data saja dikarenakan hanya terdapat 85 data dan tidak terlalu menggangu analisa. Begitu juga dengan kolom crew tidak ada referensi ynag cukup untuk melakukan _fill missing value_ sehingga diambil langkah yang sama yaitu melakukan drop data saja.
 
+    Tabel 2. Data setelah data crew dan genre di _drop_
     |    | variable   | dtype   |   count |   unique |   missing |
     |---:|:-----------|:--------|--------:|---------:|----------:|
     |  0 | names      | object  |   10052 |     9538 |         0 |
@@ -112,6 +113,7 @@ Dapat dilihat setelah data yang _missing_ berhasil di _drop_ maka hanya terdapat
 3. Kolom Revenue dan budget yang diubah menjadi rupiah dengan bantuan libray locale. Penamaan kolom baru yaitu revenue_formatted dan budget_formatted
 4. Menguba kolom genre menggunakan tdidfvectorizer untuk melakukan mapping data genre ke beberapa kolom.
 
+    Tabel 3. Data genre menjadi bentuk tfidfvectorizer
     | names                                                   |   action |       tv |   mystery |   western |   horror |   thriller |   fantasy |   family |   romance |   war |   documentary |   fiction |   crime |   music |   comedy |    drama |    movie |   animation |   science |   adventure |   history |
     |:--------------------------------------------------------|---------:|---------:|----------:|----------:|---------:|-----------:|----------:|---------:|----------:|------:|--------------:|----------:|--------:|--------:|---------:|---------:|---------:|------------:|----------:|------------:|----------:|
     | Mona Lisa Smile                                         | 0        | 0        |         0 |         0 |        0 |          0 |         0 | 0        |  0.526189 |     0 |             0 |  0        |       0 |       0 | 0        | 0.363478 | 0        |           0 |  0        |    0        |  0.768771 |
@@ -129,6 +131,7 @@ Dapat dilihat setelah data yang _missing_ berhasil di _drop_ maka hanya terdapat
 
 5. Mengubah data genre dalam bentuk one hot encoding yang kurang lebih berfungsi untuk melakukan mapping beberapa genre menjadi beberapa kolom.
 
+    Tabel 4. Data genre menjadi bentuk one hot encoding
     |    | names                       |   Action |   Adventure |   Animation |   Comedy |   Crime |   Documentary |   Drama |   Family |   Fantasy |   History |   Horror |   Music |   Mystery |   Romance |   Science Fiction |   TV Movie |   Thriller |   War |   Western |
     |---:|:----------------------------|---------:|------------:|------------:|---------:|--------:|--------------:|--------:|---------:|----------:|----------:|---------:|--------:|----------:|----------:|------------------:|-----------:|-----------:|------:|----------:|
     |  0 | Creed III                   |        1 |           0 |           0 |        0 |       0 |             0 |       1 |        0 |         0 |         0 |        0 |       0 |         0 |         0 |                 0 |          0 |          0 |     0 |         0 |
@@ -260,15 +263,98 @@ Berikut adalah langkah-langkah untuk melakukan rekomendasi.
 > Analisis komponen utama, atau PCA, adalah prosedur statistik yang memungkinkan Anda untuk meringkas konten informasi dalam tabel data besar melalui serangkaian "indeks ringkasan" yang lebih kecil yang dapat divisualisasikan dan dianalisis dengan lebih mudah.
 2. Melakukan rekomendasi dengan melihat _coisine simalirity_
 > _coisine simalirity_ mengukur kesamaan antara dua vektor ruang produk dalam. Itu diukur dengan cosinus sudut antara dua vektor dan menentukan apakah dua vektor menunjuk ke arah yang kira-kira sama. Ini sering digunakan untuk mengukur kesamaan dokumen dalam analisis teks.
+3. Melakukan rekomendasi content-based-learning
+dengan salah satu testing yaitu movie dengan judul "Avengers: Endgame"
 
+* Hasil rekomendasi dengan genre yang menggunakan one hot encoding
+    
+    tabel 5. Data rekomendasi dengan genre one hot encoding
+
+|      | names                                                 | genre                                                           |   score |
+|-----:|:------------------------------------------------------|:----------------------------------------------------------------|--------:|
+| 8253 | The Towering Inferno                                  | Action, Drama, Thriller                                         |      70 |
+| 5035 | The Death of Superman                                 | Science Fiction, Animation, Action, Drama                       |      75 |
+|  278 | Eternals                                              | Science Fiction, Action, Adventure                              |      70 |
+| 4046 | Gantz:O                                               | Science Fiction, Action, Animation                              |      73 |
+| 1424 | Naruto Shippuden the Movie: The Will of Fire          | Action, Adventure, Comedy, Drama, Fantasy, Animation            |      72 |
+| 9288 | Batman & Mr. Freeze: SubZero                          | Animation, Action, Crime                                        |      70 |
+|  642 | Constantine: The House of Mystery                     | Animation, Action, Adventure, Horror                            |      70 |
+| 4513 | Scooby-Doo! and the Cyber Chase                       | Animation, Adventure, Comedy                                    |      73 |
+| 6669 | Justice League Dark                                   | Animation, Action, Fantasy                                      |      73 |
+| 5977 | Phineas and Ferb: The Movie: Across the 2nd Dimension | Animation, Comedy, Family, TV Movie, Adventure, Science Fiction |      69 |\
+
+* Hasil rekomendasi dengan genre yang menggunakan tfidvectorizer
+
+tabel 6. Data rekomendasi dengan genre tfidvectorizer
+
+|      | names                                                 | genre                                                           |   score |
+|-----:|:------------------------------------------------------|:----------------------------------------------------------------|--------:|
+| 8253 | The Towering Inferno                                  | Action, Drama, Thriller                                         |      70 |
+| 5035 | The Death of Superman                                 | Science Fiction, Animation, Action, Drama                       |      75 |
+|  278 | Eternals                                              | Science Fiction, Action, Adventure                              |      70 |
+| 4046 | Gantz:O                                               | Science Fiction, Action, Animation                              |      73 |
+| 1424 | Naruto Shippuden the Movie: The Will of Fire          | Action, Adventure, Comedy, Drama, Fantasy, Animation            |      72 |
+| 9288 | Batman & Mr. Freeze: SubZero                          | Animation, Action, Crime                                        |      70 |
+|  642 | Constantine: The House of Mystery                     | Animation, Action, Adventure, Horror                            |      70 |
+| 4513 | Scooby-Doo! and the Cyber Chase                       | Animation, Adventure, Comedy                                    |      73 |
+| 6669 | Justice League Dark                                   | Animation, Action, Fantasy                                      |      73 |
+| 5977 | Phineas and Ferb: The Movie: Across the 2nd Dimension | Animation, Comedy, Family, TV Movie, Adventure, Science Fiction |      69 |
+| 8253 | The Towering Inferno                                  | Action, Drama, Thriller                                         |      70 |
+|  278 | Eternals                                              | Science Fiction, Action, Adventure                              |      70 |
+| 5035 | The Death of Superman                                 | Science Fiction, Animation, Action, Drama                       |      75 |
+| 4046 | Gantz:O                                               | Science Fiction, Action, Animation                              |      73 |
+| 1424 | Naruto Shippuden the Movie: The Will of Fire          | Action, Adventure, Comedy, Drama, Fantasy, Animation            |      72 |
+| 9288 | Batman & Mr. Freeze: SubZero                          | Animation, Action, Crime                                        |      70 |
+| 4513 | Scooby-Doo! and the Cyber Chase                       | Animation, Adventure, Comedy                                    |      73 |
+| 5977 | Phineas and Ferb: The Movie: Across the 2nd Dimension | Animation, Comedy, Family, TV Movie, Adventure, Science Fiction |      69 |
+| 4914 | Justice League: War                                   | Animation, Action                                               |      75 |
+|  642 | Constantine: The House of Mystery                     | Animation, Action, Adventure, Horror                            |      70 |
+    
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+Evaluasi yang digunakan untuk membuktikan rekomendasi itu cocok yaitu menggunakan evaluasi akurasi, recal dan precision. Dimana untuk melihat apakah hasil rekomendasi yang diberikan oleh algoritma _content based learning_ dengan adanya _intersection_ antara data genre yang direkomendasi ada di dalam genre hasil rekomendasi.
 
+- Akurasi adalah hasil prediksi yang benar dari keseluruhan data uji.
+
+| $$Accuracy = \frac {TP + TN} { TP + FP + FN + TN }$$ |
+| ---------------------------------------------------- |
+
+- Presisi adalah prediksi rasio TP dibanding keseluruhan prediksi positif.
+
+| $$Precision = \frac {TP} { TP + FP }$$ |
+| -------------------------------------- |
+
+- Recall adalah prediksi rasio TP dibanding keseluruhan data yang benar.
+
+| $$Recall = \frac {TP} {TP + FN }$$ |
+| ---------------------------------- |
+
+
+Dengan menggunakan beberapa dataset test case dalam dataset 
+1. "Avengers: Endgame", 
+2. "Avengers: Infinity War", 
+3. "Captain America: The First Avenger", 
+4. "The Big 4"
+
+model rekomendasi 1 (one hot encoding)
+```
+recal average : 1.0
+precision average : 1.0
+akurasi average : 1.0
+```
+model rekomendasi 2 (tfidvectorizer)
+```
+recal average : 1.0
+precision average : 1.0
+akurasi average : 1.0
+```
 
 ## Kesimpulan
+Kesimpulan yang dapat ditarik sebagai berikut
+1. Adanya beberapa insight yang menarik saat melakukan explorasi dataset dimana kita bisa melihat distribusi rating film yang layak ditonton, distribusi pendapatan dan budget produksi film, korelasi antara budget dan pendapatan yang menjadi salah satu indikator film itu layak ditonton atau tidak.
+2. Dapat dilihat juga insight yang menarik dimana adanya tren banyaknya produksi film dari waktu ke waktu yang selalu meningkat, sehingga masalah untuk menentukan rekomendasi film yang menarik menjadi salah satu solusi agar mempermudah user menentukan film yang cocok dengan persona user.
+3. Dilihat dari performa 2 model yang tidak terlihat perbedaannya saat melakukan rekomendasi maka 2 model itu layak digunakan dikarenakan mendapatkan akurasi, recall, dan presisi bernilai 1 atau berhasil memilihkan user film yang genrenya sesuai dengan film yang sebelumnya ditonton. 
 
 ## Daftar Pustaka
 
